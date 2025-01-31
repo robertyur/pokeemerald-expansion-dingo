@@ -2440,7 +2440,6 @@ static void Task_KeyItemWheel(u8 taskId)
 {
     u32 i, j;
     s16 *data = gTasks[taskId].data;
-    struct Sprite *sprite;
     switch (tState)
     {
     case 0:

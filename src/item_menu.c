@@ -2070,7 +2070,8 @@ static void Task_ChooseHowManyToToss(u8 taskId)
 }
 
 // Returns [1-4] based on dpad, or 0 otherwise
-static u32 DpadInputToRegisteredItemIndex(bool32 check) {
+static u32 DpadInputToRegisteredItemIndex(bool32 check)
+{
     u32 i = 0;
     if (JOY_NEW(DPAD_UP))
         i = 1;
@@ -2086,12 +2087,14 @@ static u32 DpadInputToRegisteredItemIndex(bool32 check) {
     return i;
 }
 
-static void Task_RegisterUsingDpad(u8 taskId) {
+static void Task_RegisterUsingDpad(u8 taskId)
+{
     s16 *data = gTasks[taskId].data;
     u16 *scrollPos = &gBagPosition.scrollPosition[gBagPosition.pocket];
     u16 *cursorPos = &gBagPosition.cursorPosition[gBagPosition.pocket];
     u32 i = 0;
-    if (JOY_NEW(B_BUTTON)) {
+    if (JOY_NEW(B_BUTTON))
+{
         PlaySE(SE_SELECT);
         ItemMenu_Cancel(taskId);
         return;
@@ -2145,14 +2148,16 @@ static void Task_RemoveItemFromBag(u8 taskId)
     }
 }
 
-static u32 CountRegisteredItems(void) {
+static u32 CountRegisteredItems(void)
+{
     u32 i;
     u32 count = 0;
     for (i = 0; i < ARRAY_COUNT(gSaveBlock1Ptr->registeredItems); i++)
         if (gSaveBlock1Ptr->registeredItems[i] != ITEM_NONE)
             count++;
     // Fallback to vanilla registeredItem
-    if (count == 0 && gSaveBlock1Ptr->registeredItemCompat) {
+    if (count == 0 && gSaveBlock1Ptr->registeredItemCompat)
+{
         gSaveBlock1Ptr->registeredItems[0] = gSaveBlock1Ptr->registeredItemCompat;
         count = 1;
     }
@@ -2160,12 +2165,14 @@ static u32 CountRegisteredItems(void) {
 }
 
 // if passed ITEM_NONE, finds the first registered item's index
-s32 RegisteredItemIndex(u16 item) {
+s32 RegisteredItemIndex(u16 item)
+{
     s32 i;
     for (i = 0; i < ARRAY_COUNT(gSaveBlock1Ptr->registeredItems); i++)
         if (gSaveBlock1Ptr->registeredItems[i] && (!item || gSaveBlock1Ptr->registeredItems[i] == item))
             return i;
-    if (item && item == gSaveBlock1Ptr->registeredItemCompat) {
+    if (item && item == gSaveBlock1Ptr->registeredItemCompat)
+{
         gSaveBlock1Ptr->registeredItems[0] = item;
         return 0;
     }
@@ -2180,7 +2187,8 @@ static void ItemMenu_Register(u8 taskId)
     s32 index = RegisteredItemIndex(gSpecialVar_ItemId);
     s32 count = CountRegisteredItems();
     // unregister/deselect item
-    if (index >= 0) {
+    if (index >= 0)
+{
         gSaveBlock1Ptr->registeredItems[index] = ITEM_NONE;
         // unregistering last item, index set to first registered item
         if (--count == 0 || (index = RegisteredItemIndex(ITEM_NONE)) < 0)
@@ -2189,13 +2197,15 @@ static void ItemMenu_Register(u8 taskId)
             gSaveBlock1Ptr->registeredItemCompat = gSaveBlock1Ptr->registeredItems[index];
         index = 1; // ensure menu is closed
     // no items registered; register this one in slot 0
-    } else if (count == 0) {
+    } else if (count == 0)
+{
         gSaveBlock1Ptr->registeredItems[0] = gSpecialVar_ItemId;
         gSaveBlock1Ptr->registeredItemCompat = gSpecialVar_ItemId;
     }
 
     // no DPAD required; just close the menu
-    if (index >= 0 || count == 0) {
+    if (index >= 0 || count == 0)
+{
         DestroyListMenuTask(tListTaskId, scrollPos, cursorPos);
         LoadBagItemListBuffers(gBagPosition.pocket);
         tListTaskId = ListMenuInit(&gMultiuseListMenuTemplate, *scrollPos, *cursorPos);
@@ -2342,18 +2352,25 @@ bool8 UseRegisteredKeyItemOnField(void)
     ChangeBgY_ScreenOff(0, 0, BG_COORD_SET);
     i = CountRegisteredItems();
     // Show key item wheel
-    if (i > 1) {
+    if (i > 1)
+    {
         func = Task_KeyItemWheel;
-    // Use the only registered item
-    } else if (i > 0) {
-        if (CheckBagHasItem(gSaveBlock1Ptr->registeredItemCompat, 1) == TRUE) {
+        // Use the only registered item
+    } 
+    else if (i > 0)
+    {
+        if (CheckBagHasItem(gSaveBlock1Ptr->registeredItemCompat, 1) == TRUE)
+        {
             gSpecialVar_ItemId = gSaveBlock1Ptr->registeredItemCompat;
             func = ItemId_GetFieldFunc(gSaveBlock1Ptr->registeredItemCompat);
-        } else {
+        } 
+        else 
+        {
             gSaveBlock1Ptr->registeredItemCompat = ITEM_NONE;
         }
     }
-    if (func) {
+    if (func)
+    {
         LockPlayerFieldControls();
         FreezeObjectEvents();
         PlayerFreeze();
@@ -2366,14 +2383,17 @@ bool8 UseRegisteredKeyItemOnField(void)
     return TRUE;
 }
 
-static void HBlankCB_KeyItemWheel(void) {
+static void HBlankCB_KeyItemWheel(void)
+{
     u32 vCount = REG_VCOUNT;
-    if (vCount >= DISPLAY_HEIGHT) {
+    if (vCount >= DISPLAY_HEIGHT)
+    {
         sKeyItemWheelExtraPalette[0] = 0;
         return;
     }
     // Copy item 3
-    if (vCount >= 64 && sKeyItemWheelExtraPalette[0] == 0) {
+    if (vCount >= 64 && sKeyItemWheelExtraPalette[0] == 0)
+    {
         CpuFastCopy(sKeyItemWheelExtraPalette, (u32*)(BG_PLTT + PLTT_ID(13)*2), PLTT_SIZE_4BPP);
         sKeyItemWheelExtraPalette[0] = 0x8000;
     }
@@ -2387,13 +2407,15 @@ static void HBlankCB_KeyItemWheel(void) {
 #define tIconWindow (data + 1 + 2*MAX_REGISTERED_ITEMS)
 
 // Free key item wheel gfx using sprites & windows from task data
-static void FreeKeyItemWheelGfx(s16 *data) {
+static void FreeKeyItemWheelGfx(s16 *data)
+{
     u32 i;
     struct Sprite *sprite;
     FreeSpriteTilesByTag(PAL_TAG_KEY_ITEM_WHEEL);
     FreeSpritePaletteByTag(PAL_TAG_KEY_ITEM_WHEEL);
     // free box sprites
-    for (i = 0; i < 2 * MAX_REGISTERED_ITEMS; i++) {
+    for (i = 0; i < 2 * MAX_REGISTERED_ITEMS; i++)
+    {
         if (tBoxSprite[i] >= MAX_SPRITES)
             continue;
         sprite = &gSprites[tBoxSprite[i]];
@@ -2401,7 +2423,8 @@ static void FreeKeyItemWheelGfx(s16 *data) {
         DestroySprite(sprite);
     }
     // free item windows
-    for (i = 0; i < MAX_REGISTERED_ITEMS; i++) {
+    for (i = 0; i < MAX_REGISTERED_ITEMS; i++)
+    {
         if (tIconWindow[i] == WINDOW_NONE)
             continue;
         FillWindowPixelBuffer(tIconWindow[i], 0);
@@ -2413,7 +2436,8 @@ static void FreeKeyItemWheelGfx(s16 *data) {
     DisableInterrupts(INTR_FLAG_HBLANK);
 }
 
-static void Task_KeyItemWheel(u8 taskId) {
+static void Task_KeyItemWheel(u8 taskId)
+{
     u32 i, j;
     s16 *data = gTasks[taskId].data;
     struct Sprite *sprite;
@@ -2422,9 +2446,10 @@ static void Task_KeyItemWheel(u8 taskId) {
     case 0:
     {
         LoadSpritePalette(&sSpritePalette_KeyItemBox);
-        LoadSpriteSheetByTemplate(&sSpriteTemplate_KeyItemBox, 0);
+        LoadCompressedSpriteSheetByTemplate(&sSpriteTemplate_KeyItemBox, 0);
 
-        for (i = 0; i < MAX_REGISTERED_ITEMS; i++) {
+        for (i = 0; i < MAX_REGISTERED_ITEMS; i++)
+        {
             // Create box sprite
             tBoxSprite[i] = j = CreateSprite(&sSpriteTemplate_KeyItemBox, sKeyItemBoxXPos[i], sKeyItemBoxYPos[i], 0);
             if (j < MAX_SPRITES)
@@ -2450,7 +2475,8 @@ static void Task_KeyItemWheel(u8 taskId) {
     }
     case 1: // process input
     {
-        if (JOY_NEW(B_BUTTON) || JOY_NEW(SELECT_BUTTON)) {
+        if (JOY_NEW(B_BUTTON) || JOY_NEW(SELECT_BUTTON))
+        {
             PlaySE(SE_SELECT);
             tState = 3; // destroy and unfreeze
             break;

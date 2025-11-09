@@ -120,7 +120,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .image = IMG_POKEMON_TOWER
     },
     [MPS_SAFARI_ZONE] = {
-        .mapsec = MAPSEC_KANTO_SAFARI_ZONE,
+        .mapsec = MAPSEC_SAFARI_ZONE,
         .type = MPS_TYPE_FADE_IN,
         .flagId = MPS_FLAG_NULL,
         .image = IMG_SAFARI_ZONE
@@ -150,7 +150,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .image = IMG_SILPH_CO
     },
     [MPS_VICTORY_ROAD] = {
-        .mapsec = MAPSEC_KANTO_VICTORY_ROAD,
+        .mapsec = MAPSEC_VICTORY_ROAD,
         .type = MPS_TYPE_CAVE,
         .flagId = MPS_FLAG_NULL,
         .image = IMG_VICTORY_ROAD
@@ -253,6 +253,108 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
     },
     [MPS_VIAPOIS_CHAMBER] = {
         .mapsec = MAPSEC_VIAPOIS_CHAMBER,
+        .type = MPS_TYPE_CAVE,
+        .flagId = MPS_FLAG_NULL,
+        .image = IMG_MONEAN_CHAMBER
+    },
+    [MPS_PETALBURG_WOODS] = {
+        .mapsec = MAPSEC_PETALBURG_WOODS,
+        .type = MPS_TYPE_FADE_IN,
+        .flagId = MPS_FLAG_NULL,
+        .image = IMG_VIRIDIAN_FOREST
+    },
+     [MPS_METEOR_FALLS] = {
+        .mapsec = MAPSEC_METEOR_FALLS,
+        .type = MPS_TYPE_CAVE,
+        .flagId = MPS_FLAG_NULL,
+        .image = IMG_MT_MOON
+    },
+    [MPS_RUSTURF_TUNNEL] = {
+        .mapsec = MAPSEC_RUSTURF_TUNNEL,
+        .type = MPS_TYPE_CAVE,
+        .flagId = MPS_FLAG_NULL,
+        .image = IMG_CERULEAN_CAVE
+    },
+    [MPS_GRANITE_CAVE] = {
+        .mapsec = MAPSEC_GRANITE_CAVE,
+        .type = MPS_TYPE_CAVE,
+        .flagId = MPS_FLAG_NULL,
+        .image = IMG_SEAFOAM_ISLANDS
+    },
+    [MPS_NEW_MAUVILLE] = {
+        .mapsec = MAPSEC_NEW_MAUVILLE,
+        .type = MPS_TYPE_CAVE,
+        .flagId = MPS_FLAG_NULL,
+        .image = IMG_POWER_PLANT
+    },
+    [MPS_FIERY_PATH] = {
+        .mapsec = MAPSEC_FIERY_PATH,
+        .type = MPS_TYPE_CAVE,
+        .flagId = MPS_FLAG_NULL,
+        .image = IMG_MT_EMBER
+    },
+    [MPS_SCORCHED_SLAB] = {
+        .mapsec = MAPSEC_SCORCHED_SLAB,
+        .type = MPS_TYPE_CAVE,
+        .flagId = MPS_FLAG_NULL,
+        .image = IMG_MT_EMBER
+    },
+    [MPS_MT_PYRE] = {
+        .mapsec = MAPSEC_MT_PYRE,
+        .type = MPS_TYPE_CAVE,
+        .flagId = MPS_FLAG_NULL,
+        .image = IMG_LOST_CAVE
+    },
+    [MPS_DESERT_RUINS] = {
+        .mapsec = MAPSEC_DESERT_RUINS,
+        .type = MPS_TYPE_CAVE,
+        .flagId = MPS_FLAG_NULL,
+        .image = IMG_MONEAN_CHAMBER
+    },
+    [MPS_ISLAND_CAVE] = {
+        .mapsec = MAPSEC_ISLAND_CAVE,
+        .type = MPS_TYPE_CAVE,
+        .flagId = MPS_FLAG_NULL,
+        .image = IMG_ALTERING_CAVE
+    },
+    [MPS_ANCIENT_TOMB] = {
+        .mapsec = MAPSEC_ANCIENT_TOMB,
+        .type = MPS_TYPE_CAVE,
+        .flagId = MPS_FLAG_NULL,
+        .image = IMG_ROCK_TUNNEL
+    },
+    [MPS_AQUA_HIDEOUT] = {
+        .mapsec = MAPSEC_AQUA_HIDEOUT,
+        .type = MPS_TYPE_CAVE,
+        .flagId = MPS_FLAG_NULL,
+        .image = IMG_LOST_CAVE
+    },
+    [MPS_MAGMA_HIDEOUT] = {
+        .mapsec = MAPSEC_MAGMA_HIDEOUT,
+        .type = MPS_TYPE_CAVE,
+        .flagId = MPS_FLAG_NULL,
+        .image = IMG_MT_EMBER
+    },
+    [MPS_SHOAL_CAVE] = {
+        .mapsec = MAPSEC_SHOAL_CAVE,
+        .type = MPS_TYPE_CAVE,
+        .flagId = MPS_FLAG_NULL,
+        .image = IMG_LOST_CAVE
+    },
+    [MPS_CAVE_OF_ORIGIN] = {
+        .mapsec = MAPSEC_CAVE_OF_ORIGIN,
+        .type = MPS_TYPE_CAVE,
+        .flagId = MPS_FLAG_NULL,
+        .image = IMG_DOTTED_HOLE
+    },
+    [MPS_SKY_PILLAR] = {
+        .mapsec = MAPSEC_SKY_PILLAR,
+        .type = MPS_TYPE_CAVE,
+        .flagId = MPS_FLAG_NULL,
+        .image = IMG_POKEMON_TOWER
+    },
+    [MPS_ARTISAN_CAVE] = {
+        .mapsec = MAPSEC_ARTISAN_CAVE,
         .type = MPS_TYPE_CAVE,
         .flagId = MPS_FLAG_NULL,
         .image = IMG_MONEAN_CHAMBER

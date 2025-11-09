@@ -1449,7 +1449,7 @@ u8 GetDestinationWarpMapSectionId(void)
     return Overworld_GetMapHeaderByGroupAndId(sWarpDestination.mapGroup, sWarpDestination.mapNum)->regionMapSectionId;
 }
 
-bool8 IsMapTypeOutdoors(u8 mapType)
+bool8 IsMapTypeOutdoors(enum MapType mapType)
 {
     if (mapType == MAP_TYPE_ROUTE
      || mapType == MAP_TYPE_TOWN

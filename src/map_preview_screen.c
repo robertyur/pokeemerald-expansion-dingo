@@ -121,7 +121,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
     },
     [MPS_SAFARI_ZONE] = {
         .mapsec = MAPSEC_SAFARI_ZONE,
-        .type = MPS_TYPE_FADE_IN,
+        .type = MPS_TYPE_BASIC,
         .flagId = MPS_FLAG_NULL,
         .image = IMG_SAFARI_ZONE
     },
@@ -259,7 +259,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
     },
     [MPS_PETALBURG_WOODS] = {
         .mapsec = MAPSEC_PETALBURG_WOODS,
-        .type = MPS_TYPE_FADE_IN,
+        .type = MPS_TYPE_BASIC,
         .flagId = MPS_FLAG_NULL,
         .image = IMG_VIRIDIAN_FOREST
     },
@@ -283,7 +283,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
     },
     [MPS_NEW_MAUVILLE] = {
         .mapsec = MAPSEC_NEW_MAUVILLE,
-        .type = MPS_TYPE_CAVE,
+        .type = MPS_TYPE_BASIC,
         .flagId = MPS_FLAG_NULL,
         .image = IMG_POWER_PLANT
     },
@@ -349,7 +349,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
     },
     [MPS_SKY_PILLAR] = {
         .mapsec = MAPSEC_SKY_PILLAR,
-        .type = MPS_TYPE_CAVE,
+        .type = MPS_TYPE_BASIC,
         .flagId = MPS_FLAG_NULL,
         .image = IMG_POKEMON_TOWER
     },

@@ -121,7 +121,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
     },
     [MPS_SAFARI_ZONE] = {
         .mapsec = MAPSEC_SAFARI_ZONE,
-        .type = MPS_TYPE_BASIC,
+        .type = MPS_TYPE_FADE_IN,
         .flagId = MPS_FLAG_NULL,
         .image = IMG_SAFARI_ZONE
     },
@@ -259,7 +259,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
     },
     [MPS_PETALBURG_WOODS] = {
         .mapsec = MAPSEC_PETALBURG_WOODS,
-        .type = MPS_TYPE_BASIC,
+        .type = MPS_TYPE_FADE_IN,
         .flagId = MPS_FLAG_NULL,
         .image = IMG_VIRIDIAN_FOREST
     },

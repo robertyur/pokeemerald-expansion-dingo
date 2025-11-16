@@ -283,7 +283,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
     },
     [MPS_NEW_MAUVILLE] = {
         .mapsec = MAPSEC_NEW_MAUVILLE,
-        .type = MPS_TYPE_BASIC,
+        .type = MPS_TYPE_CAVE,
         .flagId = MPS_FLAG_NULL,
         .image = IMG_POWER_PLANT
     },

@@ -44,9 +44,9 @@
 #define NUM_TEMP_FLAGS   (TEMP_FLAGS_END - TEMP_FLAGS_START + 1)
 
 #define FLAG_NUZLOCKE        0x20 // Nuzlocke Challenge flag
-#define FLAG_UNUSED_0x021    0x21 // Unused Flag
-#define FLAG_UNUSED_0x022    0x22 // Unused Flag
-#define FLAG_UNUSED_0x023    0x23 // Unused Flag
+#define FLAG_DEXNAV_DETECT     0x21 // Searching for mon
+#define FLAG_DEXNAV_SEARCHING     0x22 // DexNav shows in start menu
+#define FLAG_DEXNAV_START_MENU     0x23 // Allow player to find hidden mons
 #define FLAG_UNUSED_0x024    0x24 // Unused Flag
 #define FLAG_UNUSED_0x025    0x25 // Unused Flag
 #define FLAG_UNUSED_0x026    0x26 // Unused Flag
